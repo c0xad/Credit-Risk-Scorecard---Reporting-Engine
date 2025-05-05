@@ -1,0 +1,2359 @@
+
+        <html>
+        <head>
+            <title>Credit Risk Scorecard Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1, h2, h3 { color: #2c3e50; }
+                table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                th { background-color: #f2f2f2; }
+                tr:nth-child(even) { background-color: #f9f9f9; }
+                .metric { display: inline-block; margin: 10px; padding: 15px; border: 1px solid #ddd; 
+                          border-radius: 5px; background-color: #f8f9fa; min-width: 150px; }
+                .metric-value { font-size: 24px; font-weight: bold; color: #3498db; }
+                .metric-label { font-size: 14px; color: #7f8c8d; }
+                .feature-importance { margin-bottom: 30px; }
+            </style>
+        </head>
+        <body>
+            <h1>Credit Risk Scorecard Report</h1>
+            <p>Generated on 2025-05-06 02:17:41</p>
+            
+            <h2>Model Performance</h2>
+            <div>
+        
+                <div class="metric">
+                    <div class="metric-value">0.8200</div>
+                    <div class="metric-label">AUC</div>
+                </div>
+            
+                <div class="metric">
+                    <div class="metric-value">0.6400</div>
+                    <div class="metric-label">Gini</div>
+                </div>
+            
+                <div class="metric">
+                    <div class="metric-value">0.5300</div>
+                    <div class="metric-label">KS</div>
+                </div>
+            
+                <div class="metric">
+                    <div class="metric-value">0.7500</div>
+                    <div class="metric-label">Accuracy</div>
+                </div>
+            
+            </div>
+            
+            <h2>Feature Importance</h2>
+            <div class="feature-importance">
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Information Value</th>
+                        <th>Coefficient</th>
+                        <th>Importance</th>
+                    </tr>
+        
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>0.5822</td>
+                    <td>0.5822</td>
+                    <td>0.3390</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>3.3522</td>
+                    <td>3.3522</td>
+                    <td>11.2374</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>0.4211</td>
+                    <td>0.4211</td>
+                    <td>0.1774</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>3.5429</td>
+                    <td>3.5429</td>
+                    <td>12.5523</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>39.1439</td>
+                    <td>39.1439</td>
+                    <td>1532.2486</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>39.1439</td>
+                    <td>39.1439</td>
+                    <td>1532.2486</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>32.6189</td>
+                    <td>32.6189</td>
+                    <td>1063.9954</td>
+                </tr>
+            
+                <tr>
+                    <td>loan_type</td>
+                    <td>0.3936</td>
+                    <td>0.3936</td>
+                    <td>0.1550</td>
+                </tr>
+            
+                <tr>
+                    <td>term_months</td>
+                    <td>0.2362</td>
+                    <td>0.2362</td>
+                    <td>0.0558</td>
+                </tr>
+            
+                <tr>
+                    <td>status</td>
+                    <td>45.6467</td>
+                    <td>45.6467</td>
+                    <td>2083.6247</td>
+                </tr>
+            
+                <tr>
+                    <td>employment_status</td>
+                    <td>0.1021</td>
+                    <td>0.1021</td>
+                    <td>0.0104</td>
+                </tr>
+            
+                <tr>
+                    <td>gender</td>
+                    <td>0.1874</td>
+                    <td>0.1874</td>
+                    <td>0.0351</td>
+                </tr>
+            
+                <tr>
+                    <td>marital_status</td>
+                    <td>0.2540</td>
+                    <td>0.2540</td>
+                    <td>0.0645</td>
+                </tr>
+            
+                <tr>
+                    <td>education</td>
+                    <td>0.0329</td>
+                    <td>0.0329</td>
+                    <td>0.0011</td>
+                </tr>
+            
+                <tr>
+                    <td>housing_status</td>
+                    <td>0.0970</td>
+                    <td>0.0970</td>
+                    <td>0.0094</td>
+                </tr>
+            
+                </table>
+            </div>
+            
+            <h2>Scorecard</h2>
+            <table>
+                <tr>
+                    <th>Characteristic</th>
+                    <th>Attribute</th>
+                    <th>WoE</th>
+                    <th>Coefficient</th>
+                    <th>Points</th>
+                </tr>
+        
+                <tr>
+                    <td>Base Points</td>
+                    <td></td>
+                    <td>nan</td>
+                    <td>0.5</td>
+                    <td>23</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_1</td>
+                    <td>-1.2039728031592694</td>
+                    <td>-0.5822436310170207</td>
+                    <td>-809</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_2</td>
+                    <td>0.0</td>
+                    <td>-0.5822436310170207</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_3</td>
+                    <td>-1.2039728031592694</td>
+                    <td>-0.5822436310170207</td>
+                    <td>-809</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_4</td>
+                    <td>0.0</td>
+                    <td>-0.5822436310170207</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_5</td>
+                    <td>0.0</td>
+                    <td>-0.5822436310170207</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_6</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.5822436310170207</td>
+                    <td>588</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_7</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.5822436310170207</td>
+                    <td>588</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_8</td>
+                    <td>0.0</td>
+                    <td>-0.5822436310170207</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_9</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.5822436310170207</td>
+                    <td>588</td>
+                </tr>
+            
+                <tr>
+                    <td>requested_amount_binned</td>
+                    <td>requested_amount_10</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.5822436310170207</td>
+                    <td>588</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_1</td>
+                    <td>0.8754687361872331</td>
+                    <td>-3.352224795592451</td>
+                    <td>3387</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_2</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-3.352224795592451</td>
+                    <td>-2432</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_3</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-3.352224795592451</td>
+                    <td>-2432</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_4</td>
+                    <td>0.0</td>
+                    <td>-3.352224795592451</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_5</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-3.352224795592451</td>
+                    <td>-2432</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_6</td>
+                    <td>21.05973807428191</td>
+                    <td>-3.352224795592451</td>
+                    <td>81480</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_7</td>
+                    <td>0.8754687361872331</td>
+                    <td>-3.352224795592451</td>
+                    <td>3387</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_8</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-3.352224795592451</td>
+                    <td>-2432</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_9</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-3.352224795592451</td>
+                    <td>-2432</td>
+                </tr>
+            
+                <tr>
+                    <td>interest_rate_binned</td>
+                    <td>interest_rate_10</td>
+                    <td>0.8754687361872331</td>
+                    <td>-3.352224795592451</td>
+                    <td>3387</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_1</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-0.42114167060735663</td>
+                    <td>-306</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_2</td>
+                    <td>0.0</td>
+                    <td>-0.42114167060735663</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_3</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-0.42114167060735663</td>
+                    <td>-306</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_4</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.42114167060735663</td>
+                    <td>426</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_5</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.42114167060735663</td>
+                    <td>426</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_6</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-0.42114167060735663</td>
+                    <td>-306</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_7</td>
+                    <td>0.0</td>
+                    <td>-0.42114167060735663</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_8</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.42114167060735663</td>
+                    <td>426</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_9</td>
+                    <td>0.8754687361872331</td>
+                    <td>-0.42114167060735663</td>
+                    <td>426</td>
+                </tr>
+            
+                <tr>
+                    <td>annual_income_binned</td>
+                    <td>annual_income_10</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-0.42114167060735663</td>
+                    <td>-306</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_1</td>
+                    <td>-0.6931471800599455</td>
+                    <td>-3.5429226882639964</td>
+                    <td>-2834</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_2</td>
+                    <td>0.4700036284957354</td>
+                    <td>-3.5429226882639964</td>
+                    <td>1922</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_3</td>
+                    <td>-1.2039728031592694</td>
+                    <td>-3.5429226882639964</td>
+                    <td>-4923</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_4</td>
+                    <td>21.05973807428191</td>
+                    <td>-3.5429226882639964</td>
+                    <td>86115</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_5</td>
+                    <td>-0.6286086588390408</td>
+                    <td>-3.5429226882639964</td>
+                    <td>-2570</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_6</td>
+                    <td>0.8754687361872331</td>
+                    <td>-3.5429226882639964</td>
+                    <td>3580</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_7</td>
+                    <td>1.3862943596198907</td>
+                    <td>-3.5429226882639964</td>
+                    <td>5669</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_8</td>
+                    <td>-0.2231435508142098</td>
+                    <td>-3.5429226882639964</td>
+                    <td>-912</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_9</td>
+                    <td>-0.22314355114754317</td>
+                    <td>-3.5429226882639964</td>
+                    <td>-912</td>
+                </tr>
+            
+                <tr>
+                    <td>age_binned</td>
+                    <td>age_10</td>
+                    <td>-0.510825623099324</td>
+                    <td>-3.5429226882639964</td>
+                    <td>-2089</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00000</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00002</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00004</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00005</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00006</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00007</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00008</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00009</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00010</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00011</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00012</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00013</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00014</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00015</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00017</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00018</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00020</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00021</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00022</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00023</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00024</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00025</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00026</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00029</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00030</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00033</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00036</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00037</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00038</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00040</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00041</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00043</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00044</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00045</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00046</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00047</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00049</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00050</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00051</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00052</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00054</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00055</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00057</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00058</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00059</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00060</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00062</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00063</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00064</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00068</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00069</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00071</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00072</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00073</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00075</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00076</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00077</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00078</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00079</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00081</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00084</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00086</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00087</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00088</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00089</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00092</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00093</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00097</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00098</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_id</td>
+                    <td>APP00099</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00000</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00002</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00004</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00005</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00006</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00007</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00008</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00009</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00010</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00011</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00012</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00013</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00014</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00015</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00017</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00018</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00020</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00021</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00022</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00023</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00024</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00025</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00026</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00029</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00030</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00033</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00036</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00037</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00038</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00040</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00041</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00043</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00044</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00045</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00046</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00047</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00049</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00050</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00051</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00052</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00054</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00055</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00057</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00058</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00059</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00060</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00062</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00063</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00064</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00068</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00069</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00071</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00072</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00073</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00075</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00076</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00077</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00078</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00079</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00081</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00084</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00086</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00087</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00088</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00089</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00092</td>
+                    <td>-20.030118658386467</td>
+                    <td>-39.14394658789879</td>
+                    <td>-904925</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00093</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00097</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00098</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>customer_id</td>
+                    <td>CUST00099</td>
+                    <td>19.11382792951231</td>
+                    <td>-39.14394658789879</td>
+                    <td>863529</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-01-19 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-01-24 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-01-27 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-02-09 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-02-10 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-02-18 00:00:00</td>
+                    <td>-0.9162907288741551</td>
+                    <td>-32.61894219583424</td>
+                    <td>-34496</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-02-21 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-03-14 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-03-22 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-03-24 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-03-25 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-03-28 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-04-09 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-04-18 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-04-22 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-04 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-07 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-10 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-13 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-14 00:00:00</td>
+                    <td>19.806975107572256</td>
+                    <td>-32.61894219583424</td>
+                    <td>745680</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-16 00:00:00</td>
+                    <td>-20.72326583794641</td>
+                    <td>-32.61894219583424</td>
+                    <td>-780176</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-22 00:00:00</td>
+                    <td>19.806975107572256</td>
+                    <td>-32.61894219583424</td>
+                    <td>745680</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-23 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-25 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-05-29 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-06-13 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-06-18 00:00:00</td>
+                    <td>-1.6094379084341002</td>
+                    <td>-32.61894219583424</td>
+                    <td>-60591</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-06-29 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-07-14 00:00:00</td>
+                    <td>19.806975107572256</td>
+                    <td>-32.61894219583424</td>
+                    <td>745680</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-07-15 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-07-16 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-07-21 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-07-26 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-08-03 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-08-12 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-08-18 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-08-21 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-08-25 00:00:00</td>
+                    <td>-0.9162907288741551</td>
+                    <td>-32.61894219583424</td>
+                    <td>-34496</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-08-29 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-08-31 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-09-01 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-09-03 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-09-11 00:00:00</td>
+                    <td>-0.2231435508142098</td>
+                    <td>-32.61894219583424</td>
+                    <td>-8401</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-09-23 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-09-28 00:00:00</td>
+                    <td>19.806975107572256</td>
+                    <td>-32.61894219583424</td>
+                    <td>745680</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-10-08 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-10-28 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-10-31 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-11-01 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-11-09 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-11-10 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-11-11 00:00:00</td>
+                    <td>19.806975107572256</td>
+                    <td>-32.61894219583424</td>
+                    <td>745680</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-11-18 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-11-27 00:00:00</td>
+                    <td>-20.030118658386467</td>
+                    <td>-32.61894219583424</td>
+                    <td>-754081</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-12-04 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-12-05 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-12-20 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>application_date</td>
+                    <td>2022-12-31 00:00:00</td>
+                    <td>19.11382792951231</td>
+                    <td>-32.61894219583424</td>
+                    <td>719585</td>
+                </tr>
+            
+                <tr>
+                    <td>loan_type</td>
+                    <td>Auto</td>
+                    <td>-0.3566749437244465</td>
+                    <td>-0.39364643738929317</td>
+                    <td>-162</td>
+                </tr>
+            
+                <tr>
+                    <td>loan_type</td>
+                    <td>Credit Card</td>
+                    <td>0.18232155674633566</td>
+                    <td>-0.39364643738929317</td>
+                    <td>83</td>
+                </tr>
+            
+                <tr>
+                    <td>loan_type</td>
+                    <td>Mortgage</td>
+                    <td>-0.5978370005510751</td>
+                    <td>-0.39364643738929317</td>
+                    <td>-272</td>
+                </tr>
+            
+                <tr>
+                    <td>loan_type</td>
+                    <td>Personal</td>
+                    <td>1.481604539378761</td>
+                    <td>-0.39364643738929317</td>
+                    <td>673</td>
+                </tr>
+            
+                <tr>
+                    <td>term_months</td>
+                    <td>12</td>
+                    <td>0.9555114444120517</td>
+                    <td>-0.23620059536986807</td>
+                    <td>260</td>
+                </tr>
+            
+                <tr>
+                    <td>term_months</td>
+                    <td>24</td>
+                    <td>-0.5108256234326576</td>
+                    <td>-0.23620059536986807</td>
+                    <td>-139</td>
+                </tr>
+            
+                <tr>
+                    <td>term_months</td>
+                    <td>36</td>
+                    <td>0.0</td>
+                    <td>-0.23620059536986807</td>
+                    <td>0</td>
+                </tr>
+            
+                <tr>
+                    <td>term_months</td>
+                    <td>48</td>
+                    <td>-0.4054651079414976</td>
+                    <td>-0.23620059536986807</td>
+                    <td>-111</td>
+                </tr>
+            
+                <tr>
+                    <td>term_months</td>
+                    <td>60</td>
+                    <td>0.09531017975887018</td>
+                    <td>-0.23620059536986807</td>
+                    <td>26</td>
+                </tr>
+            
+                <tr>
+                    <td>status</td>
+                    <td>Approved</td>
+                    <td>22.875028040322153</td>
+                    <td>-45.646738375116975</td>
+                    <td>1205136</td>
+                </tr>
+            
+                <tr>
+                    <td>status</td>
+                    <td>Pending</td>
+                    <td>21.05973807428191</td>
+                    <td>-45.646738375116975</td>
+                    <td>1109500</td>
+                </tr>
+            
+                <tr>
+                    <td>status</td>
+                    <td>Rejected</td>
+                    <td>-23.025850930040455</td>
+                    <td>-45.646738375116975</td>
+                    <td>-1213081</td>
+                </tr>
+            
+                <tr>
+                    <td>employment_status</td>
+                    <td>Full-time</td>
+                    <td>0.5500463366372207</td>
+                    <td>-0.10210596491648144</td>
+                    <td>65</td>
+                </tr>
+            
+                <tr>
+                    <td>employment_status</td>
+                    <td>Part-time</td>
+                    <td>0.11332868526414608</td>
+                    <td>-0.10210596491648144</td>
+                    <td>13</td>
+                </tr>
+            
+                <tr>
+                    <td>employment_status</td>
+                    <td>Self-employed</td>
+                    <td>-0.3101549281826273</td>
+                    <td>-0.10210596491648144</td>
+                    <td>-37</td>
+                </tr>
+            
+                <tr>
+                    <td>employment_status</td>
+                    <td>Unemployed</td>
+                    <td>-0.22314355123087637</td>
+                    <td>-0.10210596491648144</td>
+                    <td>-26</td>
+                </tr>
+            
+                <tr>
+                    <td>gender</td>
+                    <td>Female</td>
+                    <td>0.18232155673839903</td>
+                    <td>-0.18739237325071573</td>
+                    <td>39</td>
+                </tr>
+            
+                <tr>
+                    <td>gender</td>
+                    <td>Male</td>
+                    <td>-0.5108256236326574</td>
+                    <td>-0.18739237325071573</td>
+                    <td>-110</td>
+                </tr>
+            
+                <tr>
+                    <td>gender</td>
+                    <td>Other</td>
+                    <td>0.530628250856288</td>
+                    <td>-0.18739237325071573</td>
+                    <td>115</td>
+                </tr>
+            
+                <tr>
+                    <td>marital_status</td>
+                    <td>Divorced</td>
+                    <td>0.5877866646798967</td>
+                    <td>-0.25399416695012367</td>
+                    <td>172</td>
+                </tr>
+            
+                <tr>
+                    <td>marital_status</td>
+                    <td>Married</td>
+                    <td>-0.22314355123087637</td>
+                    <td>-0.25399416695012367</td>
+                    <td>-65</td>
+                </tr>
+            
+                <tr>
+                    <td>marital_status</td>
+                    <td>Single</td>
+                    <td>0.18232155672728792</td>
+                    <td>-0.25399416695012367</td>
+                    <td>53</td>
+                </tr>
+            
+                <tr>
+                    <td>marital_status</td>
+                    <td>Widowed</td>
+                    <td>-0.9162907312741551</td>
+                    <td>-0.25399416695012367</td>
+                    <td>-269</td>
+                </tr>
+            
+                <tr>
+                    <td>education</td>
+                    <td>Bachelor's</td>
+                    <td>-0.3285040668164806</td>
+                    <td>-0.03289577677627597</td>
+                    <td>-12</td>
+                </tr>
+            
+                <tr>
+                    <td>education</td>
+                    <td>High School</td>
+                    <td>0.03922071313789663</td>
+                    <td>-0.03289577677627597</td>
+                    <td>1</td>
+                </tr>
+            
+                <tr>
+                    <td>education</td>
+                    <td>Master's</td>
+                    <td>0.03922071313789663</td>
+                    <td>-0.03289577677627597</td>
+                    <td>1</td>
+                </tr>
+            
+                <tr>
+                    <td>education</td>
+                    <td>PhD</td>
+                    <td>0.18232155672728792</td>
+                    <td>-0.03289577677627597</td>
+                    <td>7</td>
+                </tr>
+            
+                <tr>
+                    <td>housing_status</td>
+                    <td>Other</td>
+                    <td>-0.3772942310105156</td>
+                    <td>-0.09696057481241914</td>
+                    <td>-42</td>
+                </tr>
+            
+                <tr>
+                    <td>housing_status</td>
+                    <td>Own</td>
+                    <td>0.4187103347213429</td>
+                    <td>-0.09696057481241914</td>
+                    <td>47</td>
+                </tr>
+            
+                <tr>
+                    <td>housing_status</td>
+                    <td>Rent</td>
+                    <td>-0.05129329437439269</td>
+                    <td>-0.09696057481241914</td>
+                    <td>-6</td>
+                </tr>
+            
+            </table>
+            
+            <h2>WoE Visualizations</h2>
+        
+                <div>
+                    <h3>status (IV: 45.6467)</h3>
+                    <img src="status_woe.png" alt="status WoE Analysis" style="max-width: 100%;">
+                </div>
+            
+                <div>
+                    <h3>application_id (IV: 39.1439)</h3>
+                    <img src="application_id_woe.png" alt="application_id WoE Analysis" style="max-width: 100%;">
+                </div>
+            
+                <div>
+                    <h3>customer_id (IV: 39.1439)</h3>
+                    <img src="customer_id_woe.png" alt="customer_id WoE Analysis" style="max-width: 100%;">
+                </div>
+            
+                <div>
+                    <h3>application_date (IV: 32.6189)</h3>
+                    <img src="application_date_woe.png" alt="application_date WoE Analysis" style="max-width: 100%;">
+                </div>
+            
+                <div>
+                    <h3>age_binned (IV: 3.5429)</h3>
+                    <img src="age_binned_woe.png" alt="age_binned WoE Analysis" style="max-width: 100%;">
+                </div>
+            
+        </body>
+        </html>
+        
