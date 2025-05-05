@@ -35,16 +35,46 @@ def get_db_connection() -> Engine:
         Engine: SQLAlchemy engine for database connection
     """
     db_type = os.getenv('DB_TYPE', 'mysql')
-    db_user = os.getenv('DB_USER', 'root')
-    db_password = os.getenv('DB_PASSWORD', '')
-    db_host = os.getenv('DB_HOST', 'localhost')
-    db_port = os.getenv('DB_PORT', '3306' if db_type == 'mysql' else '5432')
-    db_name = os.getenv('DB_NAME', 'credit_risk')
     
-    if db_type == 'mysql':
-        db_url = f"mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+    if db_type == 'sqlite':
+        # SQLite connection
+        db_path = os.getenv('DB_PATH')
+        if not db_path:
+            # Use default path if not specified
+            sqlite_dir = Path(PROJECT_ROOT) / "database" / "sqlite"
+            sqlite_dir.mkdir(parents=True, exist_ok=True)
+            db_path = str(sqlite_dir / f"{os.getenv('DB_NAME', 'credit_risk')}.db")
+        
+        db_url = f"sqlite:///{db_path}"
+        logger.info(f"Using SQLite database at: {db_path}")
+    elif db_type == 'mysql':
+        # MySQL connection
+        db_user = os.getenv('DB_USER', 'root')
+        db_password = os.getenv('DB_PASSWORD', '')
+        db_host = os.getenv('DB_HOST', 'localhost')
+        db_port = os.getenv('DB_PORT', '3306')
+        db_name = os.getenv('DB_NAME', 'credit_risk')
+        
+        # URL encode username and password to handle special characters
+        import urllib.parse
+        encoded_user = urllib.parse.quote_plus(db_user)
+        encoded_password = urllib.parse.quote_plus(db_password) if db_password else ""
+        
+        db_url = f"mysql+mysqlconnector://{encoded_user}:{encoded_password}@{db_host}:{db_port}/{db_name}"
     elif db_type == 'postgresql':
-        db_url = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+        # PostgreSQL connection
+        db_user = os.getenv('DB_USER', 'postgres')
+        db_password = os.getenv('DB_PASSWORD', '')
+        db_host = os.getenv('DB_HOST', 'localhost')
+        db_port = os.getenv('DB_PORT', '5432')
+        db_name = os.getenv('DB_NAME', 'credit_risk')
+        
+        # URL encode username and password to handle special characters
+        import urllib.parse
+        encoded_user = urllib.parse.quote_plus(db_user)
+        encoded_password = urllib.parse.quote_plus(db_password) if db_password else ""
+        
+        db_url = f"postgresql+psycopg2://{encoded_user}:{encoded_password}@{db_host}:{db_port}/{db_name}"
     else:
         raise ValueError(f"Unsupported database type: {db_type}")
     
@@ -64,10 +94,16 @@ def execute_query(query: str, params: Optional[Dict[str, Any]] = None) -> pd.Dat
     """
     engine = get_db_connection()
     try:
-        if params:
-            return pd.read_sql(text(query), engine, params=params)
-        else:
-            return pd.read_sql(text(query), engine)
+        with engine.connect() as conn:
+            if params:
+                result = conn.execute(text(query), params)
+            else:
+                result = conn.execute(text(query))
+            
+            # Convert result to DataFrame
+            columns = result.keys()
+            data = result.fetchall()
+            return pd.DataFrame(data, columns=columns)
     except Exception as e:
         logger.error(f"Error executing query: {e}")
         raise
@@ -83,11 +119,12 @@ def execute_statement(statement: str, params: Optional[Dict[str, Any]] = None) -
     """
     engine = get_db_connection()
     try:
-        with engine.begin() as conn:
+        with engine.connect() as conn:
             if params:
                 conn.execute(text(statement), params)
             else:
                 conn.execute(text(statement))
+            conn.commit()
     except Exception as e:
         logger.error(f"Error executing statement: {e}")
         raise
@@ -107,10 +144,15 @@ def batch_insert(table_name: str, data: List[Dict[str, Any]]) -> None:
     
     engine = get_db_connection()
     try:
-        with engine.begin() as conn:
-            conn.execute(text(f"INSERT INTO {table_name} ({', '.join(data[0].keys())}) "
+        with engine.connect() as conn:
+            insert_stmt = text(f"INSERT INTO {table_name} ({', '.join(data[0].keys())}) "
                           f"VALUES ({', '.join([f':{key}' for key in data[0].keys()])})")
-                          , data)
+            
+            for row in data:
+                conn.execute(insert_stmt, row)
+            
+            conn.commit()
+        
         logger.info(f"Successfully inserted {len(data)} rows into {table_name}")
     except Exception as e:
         logger.error(f"Error batch inserting data: {e}")
