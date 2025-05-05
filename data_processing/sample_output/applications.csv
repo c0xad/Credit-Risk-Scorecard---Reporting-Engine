@@ -1,0 +1,35 @@
+application_id,customer_id,application_date,loan_type,loan_purpose,requested_amount,term_months,interest_rate,monthly_payment,debt_to_income_ratio,status,decision_date,decision_reason,underwriter_id,approval_score,approved_amount,credit_score_at_application
+4965f6e9-5a53-4db4-a239-b0f60324e4d3,CUST10001,2022-10-19,Mortgage,Home Purchase,100000.0,240,8.79,886.58,46.95,Rejected,2022-10-23,Debt-to-income ratio too high,UW3594,,,657
+0332841a-4c8d-4cdb-b2dd-f691ebe1770c,CUST10001,2024-02-18,Auto,Major Purchase,8925.17,60,7.41,178.45,9.45,Conditionally Approved,2024-02-20,Collateral documentation needed,UW9165,836.0,8431.66,657
+2416fd7b-4e4f-4d29-a08a-fad3386e35f9,CUST10002,2025-03-14,Line of Credit,Debt Consolidation,24808.69,36,11.53,818.42,7.51,Approved,2025-03-22,,UW3369,724.0,22220.61,668
+b5918675-397e-4133-ac7c-47f1479fc0eb,CUST10002,2024-09-13,Mortgage,Refinance,832094.09,360,6.79,5417.91,49.74,Rejected,2024-09-18,Debt-to-income ratio too high,UW7798,,,668
+a20e5585-23a9-4160-a559-b163ecbc3f15,CUST10002,2023-05-29,Mortgage,Refinance,746131.13,240,5.9,5301.82,48.68,Rejected,2023-06-12,Debt-to-income ratio too high,UW9022,,,668
+0c76df50-250e-4d4b-b619-9e2a896c1d8b,CUST10002,2025-03-19,Home Equity,Home Improvement,167209.12,180,7.35,1536.07,14.1,Approved,2025-03-26,,UW4090,833.0,157725.9,668
+198677a3-e166-4a22-94ef-3c0a780905f8,CUST10002,2025-01-30,Line of Credit,Debt Consolidation,41471.98,24,12.49,1961.68,18.01,Approved,2025-02-05,,UW7246,842.0,38175.91,668
+da167d70-a036-4e28-a8e3-4a02f34325b4,CUST10002,2025-05-01,Mortgage,Home Purchase,780595.21,360,6.57,4970.28,45.63,Approved,2025-05-02,,UW6439,664.0,702714.54,668
+294b31ec-4f35-4e42-b305-963e67af99ed,CUST10003,2025-05-04,Credit Card,Emergency Expenses,2698.35,24,18.06,134.78,3.34,Approved,2025-05-05,,UW3529,673.0,2618.74,720
+6ac7ab01-8a37-4a49-950a-cf7585db24a2,CUST10003,2025-01-31,Personal,Major Purchase,33181.95,24,10.42,1537.62,38.11,Approved,2025-02-02,,UW9742,768.0,32936.97,720
+7fda215d-25b2-4f5e-a749-9cebe35aad2a,CUST10003,2023-10-07,Auto,Vehicle Purchase,29738.33,72,6.57,500.93,12.42,Approved,2023-10-08,,UW5708,635.0,28600.5,720
+04b99922-a252-40aa-bdd7-32b53b2cc5b7,CUST10004,2024-12-09,Line of Credit,Wedding,1000.0,24,9.47,45.9,9.62,Approved,2024-12-23,,UW5906,651.0,1000.0,752
+2e87cd8f-84c7-44b8-bdca-83f75ad8d3f0,CUST10004,2024-10-03,Business,Business Expansion,75998.87,48,7.98,1854.62,388.74,Approved,2024-10-06,,UW3950,725.0,74217.33,752
+7fac5b90-edf3-4d34-aba4-d2e4adea8bcb,CUST10005,2022-07-06,Personal,Debt Consolidation,22003.2,48,12.13,580.83,15.17,Approved,2022-07-16,,UW5161,673.0,21158.49,722
+ca3bb801-01c7-40b6-8aa3-264042471746,CUST10005,2025-03-14,Auto,Vehicle Purchase,43967.93,72,5.03,708.66,18.51,Approved,2025-03-23,,UW6661,680.0,41931.91,722
+af034a32-b613-463b-ae22-a381fa76c59d,CUST10005,2024-08-29,Line of Credit,Debt Consolidation,4887.46,60,10.84,105.87,2.77,Approved,2024-09-03,,UW8916,701.0,4887.3,722
+fec6a4e3-1cc7-44a4-b9f5-287a78e88055,CUST10007,2022-05-07,Personal,Home Improvement,32403.82,24,17.39,1608.22,19.97,Conditionally Approved,2022-05-08,Additional co-signer needed,UW1803,802.0,24016.81,584
+7d6f7044-a410-43a1-b79a-b2e3128e3f25,CUST10007,2023-11-07,Line of Credit,Wedding,29122.32,48,17.6,849.44,10.55,Rejected,2023-11-11,Insufficient credit score,UW6772,,,584
+4db84091-a83d-47f8-8023-2c367504807f,CUST10008,2024-01-22,Auto,Major Purchase,10935.95,48,15.92,309.48,15.23,Rejected,2024-02-02,Insufficient credit score,UW3240,,,509
+0190a0e2-19ba-47b3-a69c-37fcbaef45da,CUST10008,2023-06-05,Student,Education,19654.7,180,16.45,294.83,14.51,Approved,2023-06-15,,UW2476,786.0,15917.44,509
+67f42212-9f5b-42b7-ab6b-620dbd065dc6,CUST10010,2022-05-07,Home Equity,Home Improvement,30442.03,180,9.8,323.45,11.36,Approved,2022-05-13,,UW5465,871.0,27403.29,652
+5c8dc133-0cff-434d-8fc0-b1128121f6b6,CUST10010,2022-05-07,Home Equity,Home Improvement,56376.22,240,10.36,557.7,19.59,Approved,2022-05-19,,UW8673,773.0,52453.75,652
+bbb613c9-7cad-439c-b4d6-28a249934501,CUST10014,2025-01-25,Home Equity,Debt Consolidation,85587.28,240,6.9,658.67,12.3,Approved,2025-02-01,,UW7464,885.0,82873.2,850
+fc4d6e48-ad42-42e5-b0a3-cf4a42619fb5,CUST10014,2023-07-25,Personal,Education,20209.99,24,11.53,946.97,17.68,Approved,2023-08-04,,UW7086,795.0,20030.54,850
+dd7c0d60-2045-4715-93bd-bc3a71f19564,CUST10014,2024-01-30,Personal,Debt Consolidation,21594.74,12,11.61,1914.75,35.74,Approved,2024-02-09,,UW8606,713.0,21214.29,850
+5123a5ed-c1b7-4035-8b66-0dc9c30374bc,CUST10014,2022-05-07,Home Equity,Home Improvement,40015.89,180,7.28,365.96,6.83,Approved,2022-05-12,,UW4846,852.0,38247.43,850
+210e19eb-4cf8-4ec6-9bf5-25868911022e,CUST10014,2025-02-13,Home Equity,Debt Consolidation,96006.71,180,6.49,835.83,15.6,Approved,2025-02-22,,UW3531,814.0,94025.8,850
+47ebf897-ffaf-4351-9d7f-7d8e268b15ea,CUST10015,2023-04-28,Home Equity,Home Improvement,57491.54,240,18.18,895.29,262.29,Rejected,2023-05-03,High debt-to-income ratio and low credit score,UW1536,,,488
+6cd7b3bd-b70b-4d77-81d8-86c52c0e0277,CUST10016,2024-09-05,Credit Card,Debt Consolidation,7563.77,24,20.27,385.95,9.55,Approved,2024-09-16,,UW6876,788.0,6841.02,653
+5659642e-de06-45f9-99ef-cf6dabb20e37,CUST10016,2022-11-09,Personal,Debt Consolidation,8506.16,60,14.91,201.95,5.0,Approved,2022-11-11,,UW1349,708.0,7776.08,653
+3e890b21-97f6-4b21-be24-9fee24304bba,CUST10016,2022-05-07,Personal,Home Improvement,14784.52,60,14.92,351.13,8.69,Approved,2022-05-21,,UW4538,883.0,12873.11,653
+3de574d5-ebf4-4b85-9c88-cd60c47afe7c,CUST10017,2024-04-20,Home Equity,Home Improvement,42126.72,180,7.27,385.11,23.11,Approved,2024-04-25,,UW9850,674.0,42100.44,827
+5d19f1aa-faca-43ce-82d3-ef18997552a5,CUST10017,2023-07-14,Auto,Major Purchase,36355.66,60,5.26,690.43,41.43,Withdrawn,2023-07-27,,UW4898,,,827
+67691dbc-a7e8-4eaf-adf8-db18813df995,CUST10018,2024-09-23,Business,Business Expansion,73423.05,24,21.26,3782.44,105.37,Rejected,2024-09-25,High debt-to-income ratio and low credit score,UW2041,,,428
