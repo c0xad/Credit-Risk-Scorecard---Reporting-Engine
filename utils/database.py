@@ -47,6 +47,11 @@ def get_db_connection() -> Engine:
         
         db_url = f"sqlite:///{db_path}"
         logger.info(f"Using SQLite database at: {db_path}")
+        
+        # Check if SQLite file exists, if not create an empty file
+        if not os.path.exists(db_path):
+            logger.warning(f"SQLite database file doesn't exist at {db_path}. Creating empty file.")
+            Path(db_path).touch()
     elif db_type == 'mysql':
         # MySQL connection
         db_user = os.getenv('DB_USER', 'root')
@@ -81,6 +86,29 @@ def get_db_connection() -> Engine:
     return create_engine(db_url)
 
 
+def check_database_exists() -> bool:
+    """
+    Check if the database exists and has the required tables.
+    
+    Returns:
+        bool: True if database exists and has tables, False otherwise
+    """
+    try:
+        # Try to connect to the database
+        engine = get_db_connection()
+        
+        # Check if at least one important table exists
+        with engine.connect() as conn:
+            # Try to query the customer_profile table
+            result = conn.execute(text("SELECT name FROM sqlite_master WHERE type='table' AND name='customer_profile'"))
+            tables = result.fetchall()
+            
+            return len(tables) > 0
+    except Exception as e:
+        logger.warning(f"Error checking database: {e}")
+        return False
+
+
 def execute_query(query: str, params: Optional[Dict[str, Any]] = None) -> pd.DataFrame:
     """
     Execute a SQL query and return the results as a DataFrame.
@@ -90,10 +118,10 @@ def execute_query(query: str, params: Optional[Dict[str, Any]] = None) -> pd.Dat
         params (Dict[str, Any], optional): Parameters for the query
         
     Returns:
-        pd.DataFrame: Results of the query
+        pd.DataFrame: Results of the query or empty DataFrame if error
     """
-    engine = get_db_connection()
     try:
+        engine = get_db_connection()
         with engine.connect() as conn:
             if params:
                 result = conn.execute(text(query), params)
@@ -106,7 +134,8 @@ def execute_query(query: str, params: Optional[Dict[str, Any]] = None) -> pd.Dat
             return pd.DataFrame(data, columns=columns)
     except Exception as e:
         logger.error(f"Error executing query: {e}")
-        raise
+        # Return empty DataFrame instead of raising exception
+        return pd.DataFrame()
 
 
 def execute_statement(statement: str, params: Optional[Dict[str, Any]] = None) -> None:

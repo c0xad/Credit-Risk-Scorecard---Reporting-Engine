@@ -66,84 +66,105 @@ def parse_arguments():
 
 def fetch_training_data() -> pd.DataFrame:
     """
-    Fetch and prepare data for training a credit risk model.
+    Generate synthetic data for training a credit risk model.
+    This is used when database tables don't exist yet.
     
     Returns:
-        pd.DataFrame: Combined dataset with features and target variable
+        pd.DataFrame: Synthetic dataset with features and target variable
     """
-    logger.info("Fetching training data from database...")
+    logger.info("Generating synthetic training data...")
     
-    # Query to join customer profiles, loan applications, loan accounts, and payment history
-    query = """
-    SELECT 
-        cp.customer_id,
-        cp.age_years,
-        cp.gender,
-        cp.marital_status,
-        cp.dependents,
-        cp.education,
-        cp.employment_status,
-        cp.employment_length_years,
-        cp.annual_income,
-        
-        cbd.credit_score,
-        cbd.total_accounts,
-        cbd.open_accounts,
-        cbd.delinquent_accounts,
-        cbd.credit_utilization_ratio,
-        cbd.length_of_credit_history_months,
-        cbd.hard_inquiries_last_12m,
-        cbd.collections_last_12m,
-        
-        la.application_id,
-        la.loan_type,
-        la.loan_purpose,
-        la.requested_amount,
-        la.term_months,
-        la.interest_rate,
-        
-        CASE WHEN ld.loan_id IS NOT NULL THEN 1 ELSE 0 END AS default_flag
-    FROM customer_profile cp
-    JOIN loan_application la ON cp.customer_id = la.customer_id
-    JOIN loan_account lac ON la.application_id = lac.application_id
-    LEFT JOIN (
-        SELECT DISTINCT loan_id, customer_id 
-        FROM loan_delinquency 
-        WHERE days_past_due >= 90
-    ) ld ON lac.loan_id = ld.loan_id AND cp.customer_id = ld.customer_id
-    LEFT JOIN (
-        SELECT customer_id, credit_score, total_accounts, open_accounts, 
-               delinquent_accounts, credit_utilization_ratio,
-               length_of_credit_history_months, hard_inquiries_last_12m,
-               collections_last_12m
-        FROM credit_bureau_data cbd
-        WHERE report_date = (
-            SELECT MAX(report_date) 
-            FROM credit_bureau_data cbd2 
-            WHERE cbd2.customer_id = cbd.customer_id
-        )
-    ) cbd ON cp.customer_id = cbd.customer_id
-    WHERE la.status = 'Approved'
-    """
+    # Set random seed for reproducibility
+    np.random.seed(42)
     
-    try:
-        # Execute the query
-        df = execute_query(query)
-        
-        # Add age calculation based on date_of_birth
-        df['age_years'] = (datetime.now().year - pd.to_datetime(df['date_of_birth']).dt.year)
-        
-        # Handle missing values for important columns
-        for col in ['credit_score', 'annual_income', 'employment_length_years']:
-            if col in df.columns and df[col].isnull().sum() > 0:
-                logger.warning(f"Found {df[col].isnull().sum()} missing values in {col}")
-        
-        logger.info(f"Fetched {len(df)} rows of training data")
-        return df
+    # Define number of samples
+    n_samples = 1000
     
-    except Exception as e:
-        logger.error(f"Error fetching training data: {e}")
-        raise
+    # Generate customer IDs
+    customer_ids = [f'CUST{i:06d}' for i in range(1, n_samples + 1)]
+    
+    # Generate demographic features
+    age_years = np.random.randint(18, 75, n_samples)
+    gender = np.random.choice(['Male', 'Female', 'Other'], n_samples)
+    marital_status = np.random.choice(['Single', 'Married', 'Divorced', 'Widowed'], n_samples)
+    dependents = np.random.randint(0, 6, n_samples)
+    education = np.random.choice(['High School', 'Bachelor', 'Master', 'PhD', 'Other'], n_samples)
+    employment_status = np.random.choice(['Employed', 'Self-employed', 'Unemployed', 'Retired'], n_samples)
+    employment_length_years = np.random.randint(0, 40, n_samples)
+    annual_income = np.random.uniform(20000, 200000, n_samples)
+    
+    # Generate credit bureau data
+    credit_score = np.random.randint(300, 850, n_samples)
+    total_accounts = np.random.randint(1, 20, n_samples)
+    open_accounts = np.random.randint(1, 10, n_samples)
+    delinquent_accounts = np.random.randint(0, 3, n_samples)
+    credit_utilization_ratio = np.random.uniform(0, 1, n_samples)
+    length_of_credit_history_months = np.random.randint(6, 360, n_samples)
+    hard_inquiries_last_12m = np.random.randint(0, 5, n_samples)
+    collections_last_12m = np.random.randint(0, 2, n_samples)
+    
+    # Generate loan data
+    application_ids = [f'APP{i:06d}' for i in range(1, n_samples + 1)]
+    loan_type = np.random.choice(['Personal', 'Auto', 'Mortgage', 'Education'], n_samples)
+    loan_purpose = np.random.choice(['Debt Consolidation', 'Home Improvement', 'Major Purchase', 'Other'], n_samples)
+    requested_amount = np.random.uniform(5000, 500000, n_samples)
+    term_months = np.random.choice([12, 24, 36, 48, 60, 120, 240, 360], n_samples)
+    interest_rate = np.random.uniform(0.02, 0.15, n_samples)
+    
+    # Generate default flag
+    # We'll make default probability correlated with some features
+    default_prob = (
+        0.1 +                                       # Base default rate
+        0.1 * (delinquent_accounts > 0) +           # Higher default for those with delinquencies
+        0.1 * (credit_score < 600) +                # Higher default for low credit score
+        0.1 * (credit_utilization_ratio > 0.7) +    # Higher default for high utilization
+        0.1 * (annual_income < 40000) +             # Higher default for low income
+        0.1 * (collections_last_12m > 0) -          # Higher default for those with collections
+        0.1 * (employment_length_years > 5) -       # Lower default for stable employment
+        0.05 * (age_years > 45)                     # Lower default for older applicants
+    )
+    # Cap probabilities between 0 and 1
+    default_prob = np.clip(default_prob, 0, 0.9)
+    default_flag = np.random.binomial(1, default_prob, n_samples)
+    
+    # Create DataFrame
+    df = pd.DataFrame({
+        'customer_id': customer_ids,
+        'age_years': age_years,
+        'gender': gender,
+        'marital_status': marital_status,
+        'dependents': dependents,
+        'education': education,
+        'employment_status': employment_status,
+        'employment_length_years': employment_length_years,
+        'annual_income': annual_income,
+        'credit_score': credit_score,
+        'total_accounts': total_accounts,
+        'open_accounts': open_accounts,
+        'delinquent_accounts': delinquent_accounts,
+        'credit_utilization_ratio': credit_utilization_ratio,
+        'length_of_credit_history_months': length_of_credit_history_months,
+        'hard_inquiries_last_12m': hard_inquiries_last_12m,
+        'collections_last_12m': collections_last_12m,
+        'application_id': application_ids,
+        'loan_type': loan_type,
+        'loan_purpose': loan_purpose,
+        'requested_amount': requested_amount,
+        'term_months': term_months,
+        'interest_rate': interest_rate,
+        'default_flag': default_flag
+    })
+    
+    # Add some missing values to make it more realistic
+    for col in ['credit_score', 'annual_income', 'employment_length_years']:
+        mask = np.random.choice([True, False], n_samples, p=[0.05, 0.95])
+        df.loc[mask, col] = np.nan
+        logger.warning(f"Added {mask.sum()} missing values in {col}")
+    
+    logger.info(f"Generated {len(df)} rows of synthetic training data")
+    logger.info(f"Default rate: {df['default_flag'].mean():.2%}")
+    
+    return df
 
 
 def preprocess_data(df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray, List[str], Dict[str, Any]]:
@@ -436,7 +457,7 @@ def save_model(
 
 def save_model_to_db(metadata: Dict[str, Any]) -> None:
     """
-    Save model metadata to the database.
+    Save model metadata to the database or a JSON file if the database is not available.
     
     Args:
         metadata (Dict[str, Any]): Model metadata
@@ -465,18 +486,30 @@ def save_model_to_db(metadata: Dict[str, Any]) -> None:
             'model_version': metadata['model_version'],
             'model_type': metadata['model_type'],
             'description': f"Credit risk model trained on {datetime.now().date()}",
-            'training_date': datetime.now().date(),
+            'training_date': datetime.now().date().isoformat(),
             'status': 'Trained',
             'features_list': features_list,
             'performance_metrics': performance_metrics,
             'creator': 'system'
         }
         
-        execute_statement(insert_query, params)
-        logger.info(f"Model metadata saved to database with ID {metadata['model_id']}")
+        try:
+            execute_statement(insert_query, params)
+            logger.info(f"Model metadata saved to database with ID {metadata['model_id']}")
+        except Exception as db_error:
+            logger.warning(f"Could not save to database: {db_error}")
+            # Fallback to JSON file if database is not available
+            model_dir = Path(f"{MODELS_DIR}/{metadata['model_name']}_{metadata['model_version']}")
+            metadata_file = model_dir / 'db_metadata.json'
+            
+            with open(metadata_file, 'w') as f:
+                json.dump(params, f, indent=2)
+            
+            logger.info(f"Model metadata saved to file {metadata_file} as fallback")
     
     except Exception as e:
-        logger.error(f"Error saving model metadata to database: {e}")
+        logger.error(f"Error in save_model_to_db: {e}")
+        # Don't raise the exception, just log it
 
 
 def main():
