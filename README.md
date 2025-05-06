@@ -215,10 +215,3 @@ The typical workflow involves training a model, using it for predictions, monito
         ```
     *   Other options: `--period-start`, `--period-end`.
 
-## Contributing
-
-Contributions are welcome! Please follow standard coding practices and consider adding tests for new features. (Testing framework setup TBD).
-
-## License
-
-(Specify License - e.g., MIT, Apache 2.0, etc.) 
