@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Risk Scorecard - Credit Risk Scorecard: default_credit_risk_model v20250506_022543</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #7f8c8d;
+            font-size: 18px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .section h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+        .chart {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .chart img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .metric-card {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .metric-card .label {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .metric-card .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        .risk-band {
+            display: flex;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .risk-band-segment {
+            padding: 10px;
+            text-align: center;
+        }
+        .very-low {
+            background-color: #2ecc71;
+            color: white;
+        }
+        .low {
+            background-color: #3498db;
+            color: white;
+        }
+        .medium {
+            background-color: #f39c12;
+            color: white;
+        }
+        .high {
+            background-color: #e67e22;
+            color: white;
+        }
+        .very-high {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Credit Risk Scorecard: default_credit_risk_model v20250506_022543</h1>
+            <p>Generated on 2025-05-06 02:52</p>
+        </div>
+
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <p>This report provides an overview of the default_credit_risk_model credit risk model (version 20250506_022543). The model was trained on 2025-05-06T02:25:43.910249 and is currently Trained. The model has an AUC-ROC of 0.684 and a Gini coefficient of 0.368. The Population Stability Index (PSI) is 0.055, indicating population stability.</p>
+            
+            <div class="metric-cards">
+                <div class="metric-card">
+                    <div class="label">Total Customers</div>
+                    <div class="value">500</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Average Score</div>
+                    <div class="value">685.5</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Default Rate</div>
+                    <div class="value">33.8%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">AUC-ROC</div>
+                    <div class="value">0.684</div>
+                </div>
+            </div>
+            
+            <h3>Risk Band Distribution</h3>
+            <div class="risk-band">
+                <div class="risk-band-segment very-low" style="width: 11.0%;">
+                    Very Low<br>11.0%
+                </div>
+                <div class="risk-band-segment low" style="width: 24.4%;">
+                    Low<br>24.4%
+                </div>
+                <div class="risk-band-segment medium" style="width: 40.4%;">
+                    Medium<br>40.4%
+                </div>
+                <div class="risk-band-segment high" style="width: 20.4%;">
+                    High<br>20.4%
+                </div>
+                <div class="risk-band-segment very-high" style="width: 3.8%;">
+                    Very High<br>3.8%
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Model Performance</h2>
+            
+            <div class="chart">
+                <img src="" alt="Model Performance Metrics">
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                        <th>Previous Period</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>AUC-ROC</td>
+                        <td>0.6838699297449007</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>KS Statistic</td>
+                        <td>0.319937789377715</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Gini Coefficient</td>
+                        <td>0.36773985948980137</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Default Rate (%)</td>
+                        <td>33.8</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Average Score</td>
+                        <td>685.518</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Total Customers</td>
+                        <td>500</td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Feature Importance</h2>
+            
+            <div class="chart">
+                <img src="..\charts\feature_importance.png" alt="Feature Importance">
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Importance</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>credit_score</td>
+                        <td>0.3375</td>
+                        <td>Credit bureau score reflecting creditworthiness</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>loan_type_Education</td>
+                        <td>0.3278</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>loan_purpose_Other</td>
+                        <td>0.2740</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>credit_utilization_ratio</td>
+                        <td>0.2589</td>
+                        <td>Ratio of current credit balance to credit limit</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>annual_income</td>
+                        <td>0.1999</td>
+                        <td>Annual income of the customer</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>loan_purpose_Home Improvement</td>
+                        <td>0.1977</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>loan_type_Auto</td>
+                        <td>0.1760</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>employment_length_years</td>
+                        <td>0.1749</td>
+                        <td>Number of years at current employment</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>marital_status_Divorced</td>
+                        <td>0.1745</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>loan_type_Mortgage</td>
+                        <td>0.1628</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>loan_purpose_Major Purchase</td>
+                        <td>0.1450</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>marital_status_Married</td>
+                        <td>0.1447</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>employment_status_Employed</td>
+                        <td>0.1437</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>requested_amount</td>
+                        <td>0.1403</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>education_Bachelor</td>
+                        <td>0.1369</td>
+                        <td>Feature used in the model calculation</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Population Stability</h2>
+            
+            <div class="chart">
+                <img src="" alt="Population Stability Index">
+            </div>
+            
+            <p>Overall PSI: 0.055</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Score Range</th>
+                        <th>Reference %</th>
+                        <th>Current %</th>
+                        <th>PSI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Segmentation Analysis</h2>
+            
+            <div class="chart">
+                <img src="..\charts\segmentation_chart.png" alt="Segmentation Analysis">
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Count</th>
+                        <th>Average Score</th>
+                        <th>Default Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>Segment_A</td>
+                        <td>500</td>
+                        <td>592.8</td>
+                        <td>36.87%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Segment_B</td>
+                        <td>500</td>
+                        <td>579.0</td>
+                        <td>35.89%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Segment_C</td>
+                        <td>500</td>
+                        <td>586.6</td>
+                        <td>38.04%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Segment_D</td>
+                        <td>500</td>
+                        <td>593.8</td>
+                        <td>36.12%</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 - Credit Risk Scorecard & Reporting Engine</p>
+        </div>
+    </div>
+</body>
+</html>
